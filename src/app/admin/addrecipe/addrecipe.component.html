@@ -1,0 +1,133 @@
+<div class="container-fluid p-0" style="min-height: 100vh; width: 100vw;">
+  <div class="row w-100 g-0">
+    <div class="col-12 col-md-3 col-lg-2 p-0">
+      <div class="sidebar d-flex flex-column justify-content-between h-100">
+        <div style="height: 100vh;">
+          <h2 class="sidebar-title p-3">
+            <i class="fa-solid fa-user-tie fa-lg me-2"></i>
+            Admin
+          </h2>
+          <nav class="nav flex-column px-2">
+            <a routerLink="/admin" class="nav-link-custom">
+              <i class="fa-solid fa-chart-simple me-2" style="color: #B197FC;"></i>Dashboard
+            </a>
+            <a routerLink="/admin/recipelist" class="nav-link-custom">
+              <i class="fa-solid fa-burger me-2" style="color: #eecf8c;"></i>Recipes
+            </a>
+            <a routerLink="/admin/userlist" class="nav-link-custom">
+              <i class="fa-solid fa-users me-2" style="color: #74C0FC;"></i>Users
+            </a>
+            <a routerLink="/admin/downloads" class="nav-link-custom">
+              <i class="fa-solid fa-download me-2" style="color: #d5ec04;"></i>Downloads
+            </a>
+            <a routerLink="/admin/requests" class="nav-link-custom">
+              <i class="fa-solid fa-bell me-2" style="color: #f075aa;"></i>Requests
+            </a>
+          </nav>
+          <div class="p-3">
+            <a routerLink="/logout" class="nav-link-custom logout-btn">
+              <i class="fa-solid fa-right-from-bracket me-2"></i>Logout
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-9 col-lg-10">
+      <main class="content-area p-4">
+        <div class="d-flex justify-content-center">
+          <h1 class="page-title text-center mb-4">Add Recipe Details</h1>
+        </div>
+
+        <div class="card shadow-sm p-4 mx-auto" style="max-width: 1000px;">
+          <form action="">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <input type="text" name="name" [(ngModel)]="recipeData.name" placeholder="Name"
+                  class="form-control mb-3 rounded-pill">
+                <input type="number" name="cooktime" [(ngModel)]="recipeData.cookTimeMinutes"
+                  placeholder="Cooking Time (Minutes)" class="form-control mb-3 rounded-pill">
+                <input type="number" name="preptime" [(ngModel)]="recipeData.prepTimeMinutes"
+                  placeholder="Preparation Time (Minutes)" class="form-control mb-3 rounded-pill">
+
+                <label class="form-label mt-2">Choose Cuisine:</label>
+                <select name="cuisine" [(ngModel)]="recipeData.cuisine" class="form-select mb-3 rounded-pill">
+                  <option selected disabled>Choose an Option</option>
+                  @if(cuisineList.length>0){
+                  @for(i of cuisineList;track $index){
+                  <option [value]="i">{{ i }}</option>
+                  }
+                  }
+                </select>
+                <div class="d-flex mb-3">
+                  <textarea placeholder="Enter Ingredients" #ingredients class="form-control rounded-start"></textarea>
+                  <button type="button" (click)="addIngredients(ingredients)"
+                    class="btn btn-primary rounded-end ms-2">+</button>
+                </div>
+                @if(ingredientSet.length>0){
+                <div class="border border-1">
+                  @for(i of ingredientSet;track $index){
+                  <div class="border mb-1">
+                    {{i}}
+                    <button type="button" (click)="removeIngredients(i)" class="btn text-danger">X</button>
+                  </div>
+                  }
+                </div>
+                }
+              </div>
+
+              <div class="col-md-6">
+                <input type="text" name="servings" [(ngModel)]="recipeData.servings" placeholder="Servings"
+                  class="form-control mb-3 rounded-pill">
+                <input type="number" name="cal" [(ngModel)]="recipeData.caloriesPerServing"
+                  placeholder="Calories Per Serving" class="form-control mb-3 rounded-pill">
+                <input type="text" name="img" [(ngModel)]="recipeData.image" placeholder="Recipe Image URL"
+                  class="form-control mb-3 rounded-pill">
+
+                <label class="form-label mt-2">Choose Difficulty:</label>
+                <select name="diff" [(ngModel)]="recipeData.difficulty" class="form-select mb-3 rounded-pill">
+                  <option selected disabled>Choose an Option</option>
+                  <option>Easy</option>
+                  <option>Medium</option>
+                  <option>Hard</option>
+                </select>
+                <div class="d-flex mb-3">
+                  <textarea #instructions placeholder="Enter Instructions"
+                    class="form-control rounded-start"></textarea>
+                  <button class="btn btn-primary rounded-end ms-2" type="button"
+                    (click)="addInstructions(instructions)">+</button>
+                </div>
+                @if(instructionSet.length>0){
+                <div class="border border-1">
+                  @for(i of instructionSet;track $index){
+                  <div class="border mb-1">
+                    {{i}}
+                    <button type="button" (click)="removeInstructions(i)" class="btn text-danger">X</button>
+                  </div>
+                  }
+                </div>
+                }
+              </div>
+            </div>
+            <div class="meal-type-section mt-4 p-3 rounded shadow-sm">
+              <h6 class="text-center mb-3">Choose Meal Type</h6>
+              <div class="d-flex flex-wrap justify-content-center gap-3">
+                @if(mealTypeList.length){
+                @for(i of mealTypeList;track $index){
+                <span class="meal-type-item p-3 border rounded">
+                  <input type="checkbox" (change)="handleMealType($event)" [name]="i" [id]="i" class="me-2">
+                  {{i}}
+                </span>
+                }
+                }
+              </div>
+            </div>
+            <div class="text-center mt-4">
+              <button type="submit" class="btn btn-success btn px-5" type="button" (click)="handleSubmit()">Submit</button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>

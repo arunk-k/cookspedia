@@ -1,0 +1,84 @@
+<div class="container-fluid px-4">
+  <div class="row">
+    <!-- Filters Section -->
+    <div class="col-lg-3 col-md-4 col-sm-12 border-end border-3 border-dark p-4">
+      <h4 class="mb-4">Filters</h4>search
+
+      <button (click)="ngOnInit()" class="btn btn-outline-secondary w-100 mb-3">All</button>
+
+      <!-- Cuisine Filter -->
+      <button class="btn btn-outline-secondary w-100 mb-2 d-flex justify-content-between align-items-center"
+        type="button" data-bs-toggle="collapse" data-bs-target="#cuisine" aria-expanded="false" aria-controls="cuisine"
+        onclick="this.querySelector('i').classList.toggle('rotate-180')">
+        Cuisine <i class="fa-solid fa-caret-down"></i>
+      </button>
+      <div id="cuisine" class="collapse mb-3">
+        @if(cuisineList.length > 0) {
+        <div class="d-flex flex-wrap gap-2">
+          @for(cuisine of cuisineList; track $index) {
+          <button (click)="filterHandler(cuisine, 'cuisine')" class="btn btn-outline-dark">{{ cuisine }}</button>
+          }
+        </div>
+        }
+        @else {
+        <div class="text-center text-danger">No cuisines available</div>
+        }
+      </div>
+
+
+      <!-- Meal Type Filter -->
+      <button class="btn btn-outline-secondary w-100 mb-2 d-flex justify-content-between align-items-center"
+        type="button" data-bs-toggle="collapse" data-bs-target="#mealType" aria-expanded="false"
+        aria-controls="mealType" onclick="this.querySelector('i').classList.toggle('rotate-180')">
+        Meal Type <i class="fa-solid fa-caret-down"></i>
+      </button>
+      <div id="mealType" class="collapse">
+        @if(mealTypeList.length > 0) {
+        <div class="d-flex flex-wrap gap-2">
+          @for(i of mealTypeList; track $index) {
+          <button (click)="filterHandler(i, 'mealType')" class="btn btn-outline-dark">{{i}}</button>
+          }
+        </div>
+        }
+        @else {
+        <div class="text-center text-danger">No meal list available</div>
+        }
+      </div>
+    </div>
+
+    <!-- Recipe Section -->
+    <div class="col-lg-9 col-md-8 col-sm-12 p-4">
+      <div class="row align-items-center mb-4">
+        <div class="col-12 col-md-6">
+          <h2 class="mb-3 mb-md-0">Recipe List</h2>
+        </div>
+        <div class="col-12 col-md-6">
+          <input [(ngModel)]="keyword" class="form-control" placeholder="Enter Keyword to Search" type="search">
+        </div>
+      </div>
+      <div class="row g-4 justify-content-start">
+        @if(allRecipes.length > 0)
+        {
+        @for(i of allRecipes | search:keyword | filter:filterKey:filterType; track $index)
+        {
+        <div class="col-sm-6 col-md-4 col-lg-3 d-flex">
+          <div class="card" style="width: 18rem;">
+            <img src={{i.image}} class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-center">{{i.name}}</h5>
+              <p class="text-center fw-bolder">Cuisine : {{i.cuisine}}</p>
+              <a routerLink="/details/{{i._id}}" class="stretched-link"></a>
+            </div>
+          </div>
+        </div>
+        }
+        }
+        @else{
+        <div class="text-center text-danger">No Recipe Found!!</div>
+        }
+      </div>
+
+    </div>
+
+  </div>
+</div>

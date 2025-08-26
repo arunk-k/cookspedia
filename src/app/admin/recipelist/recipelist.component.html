@@ -1,0 +1,80 @@
+<div class="container-fluid p-0" style="min-height: 100vh; width: 100vw;">
+  <div class="row w-100 g-0">
+    <div class="col-12 col-md-3 col-lg-2 p-0">
+      <div class="sidebar d-flex flex-column  justify-content-between h-100">
+        <div style="height: 100vh;">
+          <h2 class="sidebar-title p-3">
+            <i class="fa-solid fa-user-tie fa-lg me-2"></i>
+            Admin
+          </h2>
+          <nav class="nav flex-column px-2">
+            <a routerLink="/admin" class="nav-link-custom">
+              <i class="fa-solid fa-chart-simple me-2" style="color: #B197FC;"></i>Dashboard
+            </a>
+            <a routerLink="/admin/recipelist" class="nav-link-custom">
+              <i class="fa-solid fa-burger me-2" style="color: #eecf8c;"></i>Recipes
+            </a>
+            <a routerLink="/admin/userlist" class="nav-link-custom">
+              <i class="fa-solid fa-users me-2" style="color: #74C0FC;"></i>Users
+            </a>
+            <a routerLink="/admin/downloads" class="nav-link-custom">
+              <i class="fa-solid fa-download me-2" style="color: #d5ec04;"></i>Downloads
+            </a>
+            <a routerLink="/admin/requests" class="nav-link-custom">
+              <i class="fa-solid fa-bell me-2" style="color: #f075aa;"></i>Requests
+            </a>
+          </nav>
+          <div class="p-3">
+            <a routerLink="/logout" class="nav-link-custom logout-btn">
+              <i class="fa-solid fa-right-from-bracket me-2"></i>Logout
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-12 col-md-9 col-lg-10 p-3">
+      <h1 class="page-title">Recipe List</h1>
+      <div class="mb-3 pt-1 d-flex justify-content-between me-2">
+        <input type="search" [(ngModel)]="keyword" name="search" placeholder="Enter Keyword" class="form-control w-50">
+        <a class="btn btn-outline-success" routerLink="/admin/addrecipe">Add New Recipe +</a>
+      </div>
+      @if(recipeList.length>0){
+      <div class="table-responsive mt-3">
+        <table class="table table-bordered table-striped align-middle">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Cuisine</th>
+              <th>Image</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for(i of recipeList|search:keyword;track $index) {
+            <tr>
+              <td>{{ $index+1 }}</td>
+              <td>{{ i.name }}</td>
+              <td>{{ i.cuisine }}</td>
+              <td>
+                <img src="{{i.image}}" class="img-fluid" style="max-height: 150px;" alt="">
+              </td>
+              <td>
+                <a routerLink="/admin/editrecipe/{{i._id}}" class="btn btn-sm btn-warning mb-3 me-2 ">Edit</a>
+                <button class="btn btn-sm btn-danger mb-3" (click)="handleDelete(i._id)">Delete</button>
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+
+      }
+      @else {
+      <h2 class="text-center text-danger">No Recipes!!</h2>
+      }
+    </div>
+  </div>
+</div>

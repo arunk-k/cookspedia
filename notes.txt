@@ -1,0 +1,44 @@
+Cookspedia
+-------------
+
+1.Admin
+----------
+    -View Users
+    -Add recipe
+    -List recipe
+    -edit recipe
+    -delete recipe
+    -testimonial approval
+    -download listing
+    -dashboard
+
+2.Users
+---------
+    -Signin
+    -Sign up
+    -recipe list
+    -recipe filter.
+    -recipe search
+    -recipe details
+    -recipe download
+    -save recipe
+    -profile pic updation
+    -list saved recipe
+
+3.Guest
+----------
+    -Add testimonials
+    -sample recipe
+    -testimonial views
+
+Pages
+---------
+-Home
+-Recipes
+-about
+-Contact
+-Sign in 
+-Sign up
+-recipe details
+-saved recipe
+-profile

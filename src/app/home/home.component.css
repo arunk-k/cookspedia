@@ -1,0 +1,21 @@
+  #intro {
+    transition: transform 0.3s;
+  }
+
+  #intro:hover {
+    transform: scale(1.2) rotate(15deg);
+  }
+
+  #banner{
+    background-image:url('https://t3.ftcdn.net/jpg/07/58/26/62/360_F_758266271_yksdY7RLYIIY6jofjJorjylEDOvgcuze.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+  }
+
+  #banner-in{
+    background-color: rgba(255,255,255,0.5);
+    width: 70%;
+    padding: 30px;
+    text-shadow: 10px 10px 10px;
+  }

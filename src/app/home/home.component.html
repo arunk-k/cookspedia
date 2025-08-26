@@ -1,0 +1,86 @@
+<div class="container-fluid p-0 ">
+    <div class="bg-success text-light">
+        <div class="w-100 row">
+            <div class="col d-flex flex-column align-items-center justify-content-center">
+                <div>
+                    <h1>CooksPedia25</h1>
+                    <p style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui,
+                        similique blanditiis. Non modi suscipit saepe ducimus! Laborum odio fuga ipsa aliquam vero sint
+                        soluta veritatis, eius quod, dolorum corrupti? Incidunt.</p>
+                </div>
+            </div>
+            <div class="col d-flex justify-content-center p-0 mb-2">
+                <img class="w-50" src="https://www.freeiconspng.com/thumbs/pizza-png/pizza-png-13.png" id="intro"
+                    alt="introimg">
+            </div>
+        </div>
+    </div>
+    <div class="p-3 w-100">
+        <h2 class="my-5 text-center">Sample Reciepes</h2>
+        <div class="d-flex flex-wrap justify-content-around">
+            @if(sampleRecipes.length>0){
+            @for(i of sampleRecipes;track $index){
+            <div class="card" style="width: 18rem;">
+                <img src={{i.image}} class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{i.name}}</h5>
+                    <p class="text-center fw-bolder">Cuisine : {{i.cuisine}}</p>
+                </div>
+            </div>
+            }
+            }
+            @else{
+            <div class="text-center text-danger">No Recipe Found!!</div>
+            }
+        </div>
+    </div>
+    <!-- banner -->
+    <div class="container-fluid d-flex justify-content-center align-items-center" id="banner">
+        <div id="banner-in">
+            <h1 class="text-center">50%+ Recipes That Very Quick And Fast</h1>
+            <h4 class="text-center">Find the perfect food ideas to start your day with the quick and easiest way</h4>
+        </div>
+    </div>
+
+    <!-- Download Section -->
+    <div style="background-color: rgb(123, 210, 210);" class="container-fluid  py-5">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-md-6 text-center">
+                <img src="https://img.freepik.com/premium-vector/hand-holding-smartphone-with-cloud-download-button-vector-illustration_276184-37.jpg"
+                    class="img-fluid rounded shadow" alt="Download Recipe" style="max-width: 70%;">
+            </div>
+
+            <div class="col-md-6">
+                <h3>Download App</h3>
+                <p>Click On the link given below to download apk file for cookspedia android app.</p>
+                <a href="" class="btn btn-lg ">
+                    <i style="color: blueviolet;" class="fa fa-download me-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- testimonials -->
+    <div class="container-fluid mb-5">
+        <h2 class="text-center my-3 text-success">User Testimonials</h2>
+        <div class="d-flex flex-wrap justify-content-around">
+            @if(testimonyList.length>0){
+            @for(i of testimonyList;track $index)
+            {
+            <div class="p-5 border shadow border-2 w-25" style="box-shadow: 4px 4px;">
+                <p style="text-align: justify;">
+                    {{i.testimony}}
+                </p>
+                <h6 class="float-end">-{{i.name}}</h6>
+
+            </div>
+            }
+            }
+            @else{
+                <h3 class="text-center text-danger">No Testimonials Available!!</h3>
+            }
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,24 @@
+<style>
+    .profile-img:hover {
+        transform: scale(1.05);
+        transition: 0.3s ease-in-out;
+        box-shadow: 0 0 15px rgba(0, 150, 0, 0.3);
+    }
+</style>
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-md-6 col-lg-4">
+            <div class="card shadow-lg border-0 rounded-4 text-center p-4">
+                <h2 class="mb-4 fw-bold text-info">Profile Picture</h2>
+                    <label for="inp" class="d-block">
+                        <input type="file" id="inp" (change)="getFile($event)" hidden>
+                        <img [src]="profilePicture" alt="profile-img"
+                            class="img-fluid rounded-circle border border-3 border-light shadow-sm profile-img"
+                            style="cursor: pointer; width: 180px; height: 180px; object-fit: cover;">
+                    </label>
+                    <button (click)="handleSubmit()" type="submit" class="btn btn-success btn-lg mt-4 px-5 shadow-sm">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,108 @@
+.sidebar {
+  background: linear-gradient(180deg, #0d0d0d, #1a1a1a);
+  color: white;
+  height: 100vh;
+  padding: 1rem 0;
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.sidebar-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #63E6BE;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 1rem;
+}
+
+.nav-link-custom {
+  color: #e0e0e0;
+  text-decoration: none;
+  padding: 0.9rem 1rem;
+  margin: 0.3rem 0;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.nav-link-custom:hover {
+  background: rgba(99, 230, 190, 0.12);
+  color: #63E6BE;
+  transform: translateX(6px);
+  box-shadow: 0 2px 12px rgba(99, 230, 190, 0.25);
+}
+
+.logout-btn {
+  background: rgba(255, 0, 0, 0.1);
+  color: #ff4d4d;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 0, 0, 0.2);
+  color: white;
+  box-shadow: 0 0 12px rgba(255, 77, 77, 0.5);
+}
+
+.content-area {
+  background: #f8f9fc;
+  min-height: 100vh;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #304f7c;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid rgba(0,0,0,0.05);
+  padding-bottom: 0.8rem;
+}
+
+.form-control, .form-select, textarea {
+  border-radius: 50px !important;
+  box-shadow: none !important;
+}
+
+textarea {
+  resize: none;
+}
+
+.btn {
+  border-radius: 50px; 
+  padding: 0.6rem 1.8rem; 
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  border: none;
+  color: #fff;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(38, 106, 255, 0.25);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #28a745, #5cd65c);
+  border: none;
+  color: white;
+}
+.btn-success:hover {
+  background: linear-gradient(135deg, #5cd65c, #28a745);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3);
+}
+
+textarea + .btn {
+  min-width: 50px;
+}
+

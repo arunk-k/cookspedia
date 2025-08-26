@@ -1,0 +1,51 @@
+<div class="container-fluid p-0">
+    <div style="background-color: #166d6d;" class="p-3 text-light">
+        <h1 class="text-center mb-3">Contact Us</h1>
+        <p class="mx-5" style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos fugit
+            natus sint doloremque velit asperiores
+            nobis at quam quibusdam. Ad tenetur eos modi iure cumque odit omnis obcaecati deleniti animi.
+            Molestiae fugit exercitationem dolores saepe cumque architecto porro recusandae fugiat doloribus? Molestias
+            distinctio fugit quod architecto doloremque, voluptatum sit nihil alias similique unde deleniti nulla quidem
+            corporis illo tempore obcaecati.
+            Dolores optio quaerat consequatur assumenda dolorem velit at distinctio delectus animi facere quod iusto
+            vitae voluptatibus maxime sequi porro suscipit perferendis, soluta labore magnam consequuntur dignissimos
+            aspernatur voluptate reiciendis? In.</p>
+    </div>
+    <div class="row">
+        <div class="col d-flex flex-column justify-content-center p-4">
+            <h2>Get In Touch</h2>
+            <p style="text-align: justify;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit molestiae,
+                atque recusandae nemo dolores
+                dicta quod asperiores ducimus est nam possimus culpa saepe ipsa ipsam aut assumenda perspiciatis,
+                impedit accusantium.
+                Officiis accusamus similique repellat mollitia culpa magni ab recusandae, accusantium nihil. Laudantium
+                modi reiciendis, quia, quasi deserunt earum quae odit temporibus facilis eligendi maiores repellendus
+                repudiandae esse, laboriosam itaque pariatur.</p>
+            <p class="my-5"><span class="bg-success p-1 rounded-circle "><i
+                        class="fa-solid fa-location-dot fa-lg text-light"></i></span> Address : ABC Tower, Calicut,
+                673018</p>
+            <p class="mb-5"><span class="bg-success p-1 rounded-circle "><i
+                        class="fa-solid fa-phone fa-lg text-light"></i></span> Phone : 7894561230</p>
+            <p class="mb-5"><span class="bg-success p-1 rounded-circle "><i
+                        class="fa-solid fa-envelope fa-lg text-light"></i></span> Email : abcgmaill.com </p>
+        </div>
+        <div class="col">
+            <div
+                class=" border-bottom border-5 border-opacity-50 rounded-3 border-secondary shadow w-75 mx-auto p-3 my-5">
+                <h4>Add Testimony</h4>
+                <form (ngSubmit)="handleSubmit(testForm.value)" #testForm="ngForm" action="">
+                    <input type="text" minlength="3" ngModel class="form-control" placeholder="Name" name="name" id="">
+                    <input type="email" ngModel required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                        class="form-control my-3" placeholder="Email" name="email" id="">
+                    <textarea name="testimony" ngModel placeholder="testimony" class="form-control mb-3" required minlength="5"></textarea>
+                    @if(testForm.invalid){
+                    <span class="text-danger">*Invalid Input Values</span>
+                    }
+                    <p class="my-4" style="text-align: justify;">By submitting, You are agreeing to the terms and
+                        conditions of the website</p>
+                    <button [disabled]="testForm.invalid" class="btn btn-success">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

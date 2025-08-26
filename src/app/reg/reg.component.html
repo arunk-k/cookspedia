@@ -1,0 +1,47 @@
+<div style="min-height: 100vh;" class="container-fluid">
+    <div class="row" style="min-height: 100vh;">
+        <div class="col d-flex justify-content-center align-items-center">
+            <div class="w-75 border shadow border-3 p-4">
+                <h1 class="text-center display-4 mb-3">CooksPedia<i
+                        class="fa-solid fa-fire-flame-curved text-warning"></i></h1>
+                <h3 class="mb-3 text-center">User Sign Up</h3>
+                <form action="" [formGroup]="regForm" (ngSubmit)="handleSubmit()">
+                    <input formControlName="email" class="form-control mb-3" type="text" placeholder="Enter EmailID">
+                    @if(regForm.controls.email.invalid && regForm.controls.email.touched){
+                    <div class="text-danger">
+                        *Invalid Email ID
+                    </div>
+                    }
+                    <input formControlName="username" class="form-control mb-3" type="text" placeholder="Enter Username">
+                    @if(regForm.controls.username.invalid && regForm.controls.username.touched){
+                    <div class="text-danger">
+                        *Invalid Username
+                    </div>
+                    }
+                    <input formControlName="password" class="form-control mb-3" type="password" placeholder="Enter Password">
+                    @if(regForm.controls.password.invalid && regForm.controls.password.touched){
+                    <div class="text-danger">
+                        *Invalid Password
+                    </div>
+                    }
+                    <div class="d-flex justify-content-between">
+                        <button [disabled]="regForm.invalid" class="btn btn-success">Submit</button>
+                        <a class="btn btn-danger" routerLink="">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col d-flex flex-column justify-content-center">
+            <h1 class="text-center display-4">Cookspedia</h1>
+            <h5 class="text-center">What will you Get?</h5>
+            <div class="d-flex justify-content-center">
+                <ul>
+                    <li>Different Recipes</li>
+                    <li>Easy Cooking Methods</li>
+                    <li>Save Your Favourite Recipes</li>
+                    <li>Download Your Recipes</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
