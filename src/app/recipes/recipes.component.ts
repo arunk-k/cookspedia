@@ -9,7 +9,7 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-recipes',
   standalone: true,
-  imports: [FormsModule,SearchPipe,FilterPipe,RouterLink],
+  imports: [FormsModule, SearchPipe, FilterPipe, RouterLink],
   templateUrl: './recipes.component.html',
   styleUrl: './recipes.component.css'
 })
@@ -37,7 +37,7 @@ export class RecipesComponent implements OnInit {
         })
         console.log(this.cuisineList)
 
-        
+
         res.map((item: any) => item.mealType).flat().forEach((item: any) => {
           if (!this.mealTypeList.includes(item)) {
             this.mealTypeList.push(item)
@@ -53,8 +53,14 @@ export class RecipesComponent implements OnInit {
     })
   }
 
-  filterHandler(key:any,type:any){
-    this.filterKey=key
-    this.filterType=type
+  filterHandler(key: any, type: any) {
+    this.filterKey = key
+    this.filterType = type
+  }
+
+  resetFilters() {
+    this.keyword = "";
+    this.filterKey = "";
+    this.filterType = "";
   }
 }

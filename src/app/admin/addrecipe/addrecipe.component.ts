@@ -91,6 +91,7 @@ export class AddrecipeComponent implements OnInit {
     console.log(this.mealtypeSet);
 
   }
+  
   handleSubmit() {
     this.recipeData.ingredients = this.ingredientSet
     this.recipeData.instructions = this.instructionSet
